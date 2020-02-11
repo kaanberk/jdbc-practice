@@ -107,25 +107,16 @@ public class SpartanTest {
         assertTrue(response.body().asString().contains("Fidole"));
     }
 
-    //TASK
-    /*
-        Create a new class HRApiTests
-        create a @Test getALLRegionsTest
-        send a get request to AllRegions API endpoint
-        -print status code
-        -print content type
-        -pretty print response JSON
-        verify that status code is 200
-        verify that content type is "application/json"
-        verify that json response body contains "Americas"
-        verify that json response body contains "Europe"
-        *try to use static imports for both RestAssured and testng
-        *store response inside the Response type variable
-     */
-  /*
-        Given the accept type XML
+    /*  Given the accept type XML
         When I send get request to /api/spartans/3
         Then status code must be 406
      */
 
+    String spartan3 = "http://3.82.231.156:8000/api/spartans/3";
+
+    @Test
+    public void negativeContentType(){
+        Response response = RestAssured.given().accept(ContentType.XML).get(spartan3);
+        assertEquals(response.getStatusCode(),406);
+    }
 }
