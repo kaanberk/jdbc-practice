@@ -7,6 +7,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import utilities.ConfigurationReader;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static io.restassured.RestAssured.*;
@@ -63,6 +64,36 @@ public class SpartanTestWithPath {
         assertEquals(phoneNumber,3312820936L);
     }
 
+    @Test
+    public void getAllSpartansWithPath(){
+        //request
+        Response response = get("/spartans/");
+
+        assertEquals(response.statusCode(),200);
+        //print the first id
+        int firstId = response.path("id[0]");
+        System.out.println("FirstId = "+firstId);
+
+        //print first name from the all spartans
+        String firstname = response.path("name[0]");
+        System.out.println("First name = "+firstname);
+
+        //print last name from the all spartans
+        String lastname = response.path("name[-1]");
+        System.out.println("Last name = " + lastname);
+
+        //get all firstnames and print out
+        List<String> allNames = response.path("name");
+        System.out.println("Names size = " + allNames.size());
+        System.out.println("All Names = " + allNames);
+
+        //print all phone number one by one
+        List<Object> allPhoneNo = response.path("phone");
+
+        for (Object no : allPhoneNo) {
+            System.out.println(no);
+        }
+    }
 }
 
 
