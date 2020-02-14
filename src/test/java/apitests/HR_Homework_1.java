@@ -15,7 +15,7 @@ import static io.restassured.RestAssured.given;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-public class Homework_1 {
+public class HR_Homework_1 {
     @BeforeClass
     public void setUpClass(){
         RestAssured.baseURI = ConfigurationReader.get("hrapi.uri");
