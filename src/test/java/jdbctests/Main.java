@@ -14,7 +14,7 @@ public class Main {
         /*   3 important steps in JDBC
                 Connection -->  Helps our java project connect to database
                 Statement -->   Helps to write and execute SQL query
-                ResultSet -->   A DataStructurewhere we can store the data that came from database
+                ResultSet -->   A DataStructure where we can store the data that came from database
         */
 
         //create connection to database
